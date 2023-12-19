@@ -3,7 +3,7 @@ function netSalaryCalculator(){
 const basicSalary = prompt('input your basic salary');
 const benefits = prompt ('input your total benefits amount')
     // Add basic salary and benefits
-    
+
     //Calculate deductions
     //NSSF
 function nssfCalculation(grossSalary){
@@ -11,8 +11,7 @@ function nssfCalculation(grossSalary){
 }
 // NHIF Calculation
 function nhifCalculation(grossSalary){
-    let nhif;
-    let basicPay = prompt('Enter your basic pay');
+    let nhif = 0;
     if (grossSalary>0 && grossSalary<=5999){
         nhif = '150';
     }
@@ -61,30 +60,34 @@ function nhifCalculation(grossSalary){
     else if (grossSalary>=90000 && grossSalary<=99999){
         nhif = '1600';
     }
-    else if (grossSalary>=100000){
+    else (grossSalary>=100000){
         nhif = '1700';
     }
+    
+    return nhif;
 }
-    function payeCalculation(grossSalary); {
-        
-    let 
+
+    function payeCalculation(grossSalary){   
+        let paye = 0;
     if (grossSalary>0 && grossSalary<=24000){
-        paye = '0.1';
+        paye = (grossSalary*0.1);
     }
-    else (grossSalary>=24001 && grossSalary<=32333){
-        paye = '0.25';
+    else if(grossSalary>=24001 && grossSalary<=32333){
+        paye = (grossSalary*0.25);
     }
     else if(grossSalary>=32334 && grossSalary<=500000){
-        paye = '0.30';
+        paye = (grossSalary*0.30);
     }
     else if(grossSalary>=500001 && grossSalary<=800000){
-        paye = '0.325';
+        paye = (grossSalary*0.325);
     }
     else if(grossSalary>=800000){
-            paye = '0.35';
+            paye = (grossSalary*0.35);
     }
+    else{
+        alert('invalid input');
+    }
+    return paye;
 }
-return nssf;
-return nhif;
-return paye;
+
 
