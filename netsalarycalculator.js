@@ -3,11 +3,21 @@ function netSalaryCalculator(){
     const basicSalary = prompt('input your basic salary');
     const benefits = prompt ('input your total benefits amount');
     // Add basic salary and benefits
+     // Validate user inputs
     const grossSalary = parseInt(basicSalary) + parseInt(benefits);
-    const personalRelief =2400;
-    const taxableIncome = grossSalary - personalRelief;
-    const netSalary = grossSalary - nssfCalculation(grossSalary) + nhifCalculation(grossSalary) + payeCalculation(taxableIncome);
-    return netSalary;
+    const taxableIncome = grossSalary - nssfCalculation;
+    const nhifCalculation = nhifCalculation(grossSalary);
+    const nssfCalculation = nssfCalculation(grossSalary);
+    const payeDeduction = payeCalculation(taxableIncome);
+    //calculating net salary
+    const netSalary = grossSalary - (payeDeduction + nhifCalculation + nssfCalculation);
+    alert (`payslip:\n
+    Gross Salary:\) ksh. ${grossSalary}\n
+    paye:\t ksh. ${payeDeduction}\n
+    nhif deduction:\t ksh. ${nhifCalculation}\n
+    nssf deduction:\t ksh. ${nssfCalculation}\n
+    Net Salary is:\t ksh. ${netSalary}`);
+    return netSalary; 
 }
 //nssf calculation
 function nssfCalculation(grossSalary){
