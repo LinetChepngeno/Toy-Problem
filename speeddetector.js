@@ -3,15 +3,16 @@
   function calculateDemeritPoints(){
     const speed = prompt('Input the speed of the car')
     if (speed <=speedlimit){
-        print ('OK');
+        alert('OK');
     }
     else {
-        const demeritpoints = math.floor((speed - speedlimit) / exceedingspeed);
+        const demeritpoints = Math.floor((speed - speedlimit) / exceedingspeed);
     if (demeritpoints >= 12){
-        print ('license suspended');
+        alert('license suspended');
     }
     else {
-        print ('You have ${demerit points} demerit points!')}
-    }
+        alert(`You have ${demeritpoints} demerit points!`);
+        }
     }
 }
+calculateDemeritPoints();

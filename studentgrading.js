@@ -19,3 +19,4 @@ function studentGradeGenerator(){
     return alert(grade);
 }
 studentGradeGenerator();
+    
