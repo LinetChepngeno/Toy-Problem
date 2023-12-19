@@ -1,6 +1,9 @@
+//declare a function
 function studentGradeGenerator(){
-   let grade;
+//prompt the user to input marks
    let marks = prompt('Enter your marks',);
+//set the conditions for the marks and give alert for the respective grades
+   let grade;
     if(marks>=79){
         grade = 'A';
     } 
@@ -18,5 +21,5 @@ function studentGradeGenerator(){
     }
     return alert(grade);
 }
+//invoke the fuction
 studentGradeGenerator();
-    
