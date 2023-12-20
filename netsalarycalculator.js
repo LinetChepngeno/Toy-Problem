@@ -5,17 +5,17 @@ function netSalaryCalculator(){
     // Add basic salary and benefits
      // Validate user inputs
     const grossSalary = parseInt(basicSalary) + parseInt(benefits);
-    const taxableIncome = grossSalary - nssfCalculation;
-    const nhifCalculation = nhifCalculation(grossSalary);
-    const nssfCalculation = nssfCalculation(grossSalary);
+    const nssfDeduction = nssfCalculation(grossSalary);
+    const taxableIncome = grossSalary - nssfDeduction;
+    const nhifDeduction = nhifCalculation(grossSalary);
     const payeDeduction = payeCalculation(taxableIncome);
     //calculating net salary
-    const netSalary = grossSalary - (payeDeduction + nhifCalculation + nssfCalculation);
+    const netSalary = grossSalary - (payeDeduction + nhifDeduction + nssfDeduction);
     alert (`payslip:\n
     Gross Salary:\) ksh. ${grossSalary}\n
     paye:\t ksh. ${payeDeduction}\n
-    nhif deduction:\t ksh. ${nhifCalculation}\n
-    nssf deduction:\t ksh. ${nssfCalculation}\n
+    nhif deduction:\t ksh. ${nhifDeduction}\n
+    nssf deduction:\t ksh. ${nssfDeduction}\n
     Net Salary is:\t ksh. ${netSalary}`);
     return netSalary; 
 }
@@ -84,25 +84,25 @@ function nhifCalculation(grossSalary){
 //paye calculation
     function payeCalculation(taxableIncome){   
         let paye = 0;
-    if (taxableIncome>0 && taxableIncome<=24000){
-        paye = (gtaxableIncome*0.1);
-    }
-    else if(taxableIncome>=24001 && taxableIncome<=32333){
-        paye = (grossSalary*0.25);
-    }
-    else if(taxableIncome>=32334 && taxableIncome<=500000){
-        paye = (taxableIncome*0.30);
-    }
-    else if(taxableIncome>=500001 && taxableIncome<=800000){
-        paye = (taxableIncome*0.325);
-    }
-    else if(taxableIncome>=800000){
-            paye = (taxableIncome*0.35);
-    }
-    else{
-        alert('invalid input');
-    }
-    return paye;
+        if (taxableIncome>0 && taxableIncome<=24000){
+            paye = taxableIncome*0.1;
+        }
+        else if(taxableIncome>=24001 && taxableIncome<=32333){
+            paye = taxableIncome*0.25;
+        }
+        else if(taxableIncome>=32334 && taxableIncome<=500000){
+            paye = taxableIncome*0.30;
+        }
+        else if(taxableIncome>=500001 && taxableIncome<=800000){
+            paye = taxableIncome*0.325;
+        }
+        else if(taxableIncome>=800001){
+                paye = taxableIncome*0.35;
+        }
+        else{
+            alert('invalid input');
+        }
+        return paye;
 }
 // Call the netSalaryCalculator function and log the result
-const result = netSalaryCalculator();
+netSalaryCalculator();
